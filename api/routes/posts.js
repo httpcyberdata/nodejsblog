@@ -8,7 +8,32 @@ router.post('/', async (req, res) => {
         const savePost = await newPost.save()
         res.status(200).json(savePost)
     } catch(err) {
-        res.status(500).json()
+        res.status(500).json(err)
+    }
+})
+
+router.put('/:id', async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id)
+        if(post.username === req.body.username) {
+        try {
+            const updatePost = await Post.findByIdAndUpdate(
+                req.params.id, {
+                    $set: req.body,
+                },
+                {
+                    new: true
+                }
+            )
+            res.status(200).json(updatePost)
+        } catch(err) {
+            res.status(200).json(err)
+        }
+    } else {
+        res.status(401).json("You can update only your post")
+    }
+    } catch(err) {
+        res.status(500).json(err)
     }
 })
 
