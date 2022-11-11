@@ -62,16 +62,3 @@ router.get('/:id', async (req, res) => {
 
 module.exports = router;
 
-/**
- * username: Vlad1337anonymous
- * email: vlad1337@gmail.com
- * password: vlad456
- * 
- * username: freshacc
- * email: freshacc101@mail.com
- * password: fresh456
- * 
- * username: dimitri_presno
- * email: presnodmitri@mail.com
- * password: presno456
- */
