@@ -8,10 +8,36 @@ const authRoute = require('./routes/auth')
 const authUser = require('./routes/user');
 const authPost = require('./routes/posts')
 const authCat = require('./routes/categories')
+const fileUpload = require('express-fileupload');
+const multipart = require('connect-multiparty')
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 dotenv.config()
 app.use(express.json())
-app.use('/images', express.static(path.join(__dirname, "/images")))
+//app.use("/images", express.static(path.join(__dirname, "/images")))
+//app.use('/images', multipart());
+const storage =   multer.diskStorage({
+      destination: function (req, file, callback) {
+        callback(null, '/uploads');
+      },
+      filename: function (req, file, callback) {
+        callback(null, file.fieldname + '-' + Date.now());
+      }
+    });
+    const upload = multer({ storage : storage}).single('userPhoto');
+     
+    app.post('/upload-avatar',function(req,res){
+        upload(req,res,function(err) {
+            if(err) {
+                return res.end("Error uploading file.");
+            }
+            res.end("File is uploaded");
+        });
+    });
 
 mongoose.connect(process.env.CONNECT_URL, {
     useNewUrlParser: true,
@@ -23,25 +49,12 @@ mongoose.connect(process.env.CONNECT_URL, {
     .catch((err) => { 
         console.log(err)
     })
-const storage = multer.diskStorage({
-        destination: (req, file, callba) => {
-            callba(null, "images")
-        },
-        filename: (req, file, callb) => {
-            callb(null, "background_image-430208.jpg")
-        }
-    })
-    const upload = multer({ 
-        storage: storage
-    })
-app.post('/upload', upload.single('file'), (req, res) => {
-    res.status(200).json("File has been uploaded")
-})
+
 app.use('/auth', authRoute)
 app.use('/users', authUser)
 app.use('/posts', authPost)
 app.use('/category', authCat)
-
+  
 
 app.listen(5000, () => {
     console.log("backend running")
