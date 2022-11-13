@@ -75,3 +75,14 @@ nav a {
     background: rgb(147, 75, 255, 0.075);
 }
 
+header.active {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 0 4px 0 rgba(115 115 115 / 20%);
+}
+
+section {
+    height: 200vh; 
+}

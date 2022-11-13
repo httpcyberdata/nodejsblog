@@ -1,5 +1,10 @@
-import React from "react";
+import React from 'react'
+import { Category } from '../../components/category/Category';
 
 export const Home = () => {
-    return <div>Home</div>
+  return (
+    <div>
+        <Category/>
+    </div>
+  )
 }

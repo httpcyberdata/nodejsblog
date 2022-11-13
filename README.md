@@ -2,7 +2,7 @@
 
 Tutorial URL: Node.js Blog App REST API with MongoDB | MERN Stack Tutorial For Beginners
 Tutorial description: No detailed description available.
-
+(Abandoned, took to long to finish)
 ___________
 
 ### Software versions

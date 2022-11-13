@@ -6,9 +6,13 @@ import './header.css';
 import { Link } from 'react-router-dom';
 
 export const Header = () => {
+    window.addEventListener("scroll", function() {
+        const header = this.document.querySelector(".header")
+        header.classList.toggle("active", this.window.scrollY > 100)
+    })
     return (
          <>
-            <header>
+            <header className="header">
                 <div className='container flex'>
                     <div className="logo">
                         <img src={logo} alt="logo" width="100px" />
