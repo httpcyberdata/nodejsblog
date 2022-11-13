@@ -1,4 +1,4 @@
-# (project title)
+# NodeJSBlog
 
 Tutorial URL: Node.js Blog App REST API with MongoDB | MERN Stack Tutorial For Beginners
 Tutorial description: No detailed description available.
@@ -6,8 +6,8 @@ Tutorial description: No detailed description available.
 ___________
 
 ### Software versions
-	NPM version: 
-	Node version: 
+	NPM version: 8.19.2
+	Node version: 16.17.0
 
 ## How to run 
 1.
@@ -17,7 +17,7 @@ ___________
 
 
 ## Problems in the project:
-1.
+1. The file upload functionality wouldn't work as expected.
 2.
 	
 
@@ -26,8 +26,8 @@ ___________
 ![]()
 
 ## Apps used:
-	- 
-    - 
+	- VS Code
+    - Postman for API requests
     -
 ## Coding styles I used:
 

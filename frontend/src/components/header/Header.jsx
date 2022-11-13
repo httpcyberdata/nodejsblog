@@ -1,5 +1,6 @@
 import React from 'react';
 import { nav } from '../../assets/data/data';
+import { User } from '../header/User'
 import logo from '../../assets/images/logo.svg'
 import './header.css';
 import { Link } from 'react-router-dom';
@@ -8,7 +9,7 @@ export const Header = () => {
     return (
          <>
             <header>
-                <div className='scontainer flex'>
+                <div className='container flex'>
                     <div className="logo">
                         <img src={logo} alt="logo" width="100px" />
                     </div>
@@ -24,7 +25,7 @@ export const Header = () => {
                         </ul>
                     </nav>
                     <div className="account flexCenter">
-                        
+                        <User />
                     </div>
                 </div>
             </header>
